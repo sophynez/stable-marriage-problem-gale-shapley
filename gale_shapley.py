@@ -1,3 +1,11 @@
+"""
+to-do :
+    - automate the insertion of both the list of men and women
+    - automate the choice of the proposer
+    - automate the insertion of the preferences of each person (ew, this is not cool if many people when I think about it, thing again
+    - interface ? 
+"""
+
 M = ['John', 'Joe', 'Ali', 'Ben', 'Sam']
 W = ['Marie', 'Aya', 'Ellie', 'Lin', 'Eva']
 
