@@ -1,4 +1,4 @@
-M = ['Ali', 'Joe', 'Sam', 'Ben', 'John']
+M = ['John', 'Joe', 'Ali', 'Ben', 'Sam']
 W = ['Marie', 'Aya', 'Ellie', 'Lin', 'Eva']
 
 men_preferences = {'Ali': ['Marie', 'Aya', 'Ellie', 'Lin', 'Eva'],
@@ -41,11 +41,14 @@ def change_partners(partners_list, person, new_partner):
     this function return the ex partner (the one getting changed), and makes the swap between new-ex partners
     return ex partner
     """
-    for i in partners_list:
+    tmp = [list(x) for x in partners_list]
+    for i in tmp:
         if i[0] == person:
             old_partner = i[1]
             i[1] = new_partner
-        return old_partner
+            break
+    partners_list = [tuple(x) for x in tmp]
+    return partners_list, old_partner
 
 
 # while there are unmatched men :
@@ -84,8 +87,9 @@ while M:
             if check_preferences(man, prospects_match, women_preferences[prospect]):
                 # here the man is more preferable to the woman than her current_match
                 # match her with the man, put back the ex match in the list of man, and remove the man from the list (life's unfair, but well oh well)
-                ex_partner = change_partners(partners, prospect, man)
+                partners, ex_partner = change_partners(partners, prospect, man)
                 M.append(ex_partner)
+                M.remove(man)
                 print(" - Lists updated")
                 print(M)
                 print(matched)
@@ -94,7 +98,12 @@ while M:
                 # here the man is not preferable to the woman, so we remove the woman from the man's list, and continue on
                 print(f'{prospect} did not jest {prospects_match} for {man}, {man} will have to move on to the next one in his preference list')
                 men_preferences[man].remove(prospect)
+                sorry_dude = M.pop(0)
+                M.append(sorry_dude)
                 print(" - Lists updated")
                 print(M)
                 print(matched)
                 print(partners)
+                break
+
+# [('Marie', 'Ali'), ('Lin', 'Sam'), ('Eva', 'Ben'), ('Aya', 'John'), ('Ellie', 'Joe')]
