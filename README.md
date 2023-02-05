@@ -4,12 +4,12 @@ The Gale-Shapley algorithm is a well-known algorithm used to solve the stable ma
 
 The algorithm works as follows:
 
-    Each man proposes to the woman he prefers the most and has not yet proposed to.
+  1. Each man proposes to the woman he prefers the most and has not yet proposed to.
 
-    Each woman, upon receiving a proposal, accepts the proposal from the man she prefers the most among all the men who have proposed to her.
+  2. Each woman, upon receiving a proposal, accepts the proposal from the man she prefers the most among all the men who have proposed to her.
 
-    If a woman accepts a proposal, the man who made the proposal is matched with that woman and removes all other women from his list.
+  3. If a woman accepts a proposal, the man who made the proposal is matched with that woman and removes all other women from his list.
 
-    The process repeats until all men are matched with a woman, or it becomes impossible for any man to propose to a woman who has not yet received a proposal.
+   The process repeats until all men are matched with a woman, or it becomes impossible for any man to propose to a woman who has not yet received a proposal.
 
 The Gale-Shapley algorithm is guaranteed to find a stable pairing. 
